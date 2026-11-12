@@ -1,0 +1,632 @@
+/* ==========================================================================
+   PURPLE LOTUS HOTEL MANAGEMENT - LUXURY THEME STYLESHEET
+   Palette: White (#FFFFFF), Cream (#FAF8F4), Champagne Gold (#C9A96E), Deep Navy (#0F1C2E)
+   ========================================================================== */
+
+:root {
+  --lum-navy: #0F1C2E;
+  --lum-navy-light: #182C47;
+  --lum-navy-soft: #223B5C;
+  --lum-gold: #C9A96E;
+  --lum-gold-light: #E2CCA2;
+  --lum-gold-dark: #A68345;
+  --lum-cream: #FAF8F4;
+  --lum-cream-2: #F3EFE7;
+  --lum-white: #FFFFFF;
+  --lum-ink: #1B2330;
+  --lum-muted: #6E7684;
+  --lum-border: rgba(201, 169, 110, 0.24);
+  --lum-shadow: 0 10px 30px rgba(15, 28, 46, 0.06);
+  --lum-shadow-hover: 0 16px 36px rgba(15, 28, 46, 0.11);
+  --sidebar-width: 270px;
+  --header-height: 70px;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --bs-font-sans-serif: 'Times New Roman', Times, Georgia, serif;
+  --bs-body-font-family: 'Times New Roman', Times, Georgia, serif;
+  --bs-body-font-size: 1rem;
+  --bs-body-line-height: 1.55;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  font-size: 15.5px;
+  line-height: 1.55;
+  font-variant-numeric: lining-nums tabular-nums;
+  background-color: var(--lum-cream);
+  color: var(--lum-ink);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif, .lum-brand-title {
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  letter-spacing: 0.015em;
+}
+
+.form-control, .form-select, .btn, .table {
+  font-family: 'Times New Roman', Times, Georgia, serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ---------------- App Shell Layout ---------------- */
+
+.lum-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.lum-sidebar {
+  width: var(--sidebar-width);
+  background: linear-gradient(180deg, var(--lum-navy) 0%, #09121F 100%);
+  color: var(--lum-cream);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(201, 169, 110, 0.2);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lum-sidebar-brand {
+  height: var(--header-height);
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.18);
+}
+
+.lum-brand-emblem {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--lum-gold), var(--lum-gold-dark));
+  color: var(--lum-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.35);
+}
+
+.lum-brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2px;
+  border: 1.5px solid var(--lum-gold);
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
+}
+
+.lum-brand-title {
+  color: var(--lum-white);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+}
+
+.lum-brand-sub {
+  font-size: 0.65rem;
+  color: var(--lum-gold-light);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.lum-sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 14px;
+}
+
+.lum-nav-section {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(226, 204, 162, 0.55);
+  padding: 12px 14px 6px;
+  font-weight: 600;
+}
+
+.lum-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 15px;
+  margin-bottom: 4px;
+  border-radius: var(--radius-md);
+  color: rgba(250, 248, 244, 0.78);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.lum-nav-link i {
+  width: 20px;
+  text-align: center;
+  color: var(--lum-gold);
+  opacity: 0.85;
+  transition: transform 0.2s ease;
+}
+
+.lum-nav-link:hover {
+  background: rgba(201, 169, 110, 0.12);
+  color: var(--lum-white);
+  transform: translateX(3px);
+}
+
+.lum-nav-link.active {
+  background: linear-gradient(90deg, rgba(201, 169, 110, 0.24) 0%, rgba(201, 169, 110, 0.08) 100%);
+  color: var(--lum-gold-light);
+  border-left: 3px solid var(--lum-gold);
+  font-weight: 600;
+}
+
+.lum-nav-link.active i {
+  opacity: 1;
+}
+
+.lum-sidebar-footer {
+  padding: 14px 18px;
+  border-top: 1px solid rgba(201, 169, 110, 0.16);
+  font-size: 0.78rem;
+  color: rgba(250, 248, 244, 0.6);
+}
+
+/* ---------------- Main Area & Header ---------------- */
+
+.lum-main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.lum-header {
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--lum-border);
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.lum-content {
+  padding: 26px 28px 40px;
+  flex: 1;
+  animation: fadeSlideIn 0.3s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------- Luxury Cards & KPI ---------------- */
+
+.lum-card {
+  background: var(--lum-white);
+  border: 1px solid var(--lum-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--lum-shadow);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.lum-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lum-shadow-hover);
+}
+
+.lum-card-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lum-card-body {
+  padding: 20px 22px;
+}
+
+.lum-kpi {
+  background: var(--lum-white);
+  border: 1px solid var(--lum-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--lum-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.lum-kpi:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--lum-shadow-hover);
+}
+
+.lum-kpi::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--lum-gold), var(--lum-navy));
+}
+
+.lum-kpi-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--lum-cream);
+  border: 1px solid var(--lum-border);
+  color: var(--lum-gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.lum-kpi-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lum-muted);
+  font-weight: 600;
+}
+
+.lum-kpi-value {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--lum-navy);
+  margin-top: 4px;
+}
+
+/* ---------------- Buttons & Badges ---------------- */
+
+.btn-lum-primary,
+.btn-lum-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-lum-primary::after,
+.btn-lum-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+
+.btn-lum-primary:hover::after,
+.btn-lum-gold:hover::after {
+  left: 140%;
+}
+
+.btn-lum-primary {
+  background: linear-gradient(135deg, var(--lum-navy) 0%, var(--lum-navy-light) 100%);
+  color: var(--lum-gold-light);
+  border: 1px solid rgba(201, 169, 110, 0.45);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-lum-primary:hover {
+  background: linear-gradient(135deg, var(--lum-navy-light) 0%, var(--lum-navy) 100%);
+  color: var(--lum-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 28, 46, 0.24);
+}
+
+.btn-lum-gold {
+  background: linear-gradient(135deg, var(--lum-gold) 0%, var(--lum-gold-dark) 100%);
+  color: var(--lum-navy);
+  border: none;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-lum-gold:hover {
+  filter: brightness(1.06);
+  color: var(--lum-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 169, 110, 0.38);
+}
+
+.btn-lum-outline {
+  background: transparent;
+  color: var(--lum-navy);
+  border: 1px solid var(--lum-gold);
+  font-weight: 600;
+}
+
+.btn-lum-outline:hover {
+  background: var(--lum-gold);
+  color: var(--lum-navy);
+}
+
+.badge-lux {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-lux-success   { background: #E7F5EC; color: #166534; border: 1px solid #BBF7D0; }
+.badge-lux-warning   { background: #FEF6E6; color: #9A5B13; border: 1px solid #FDE68A; }
+.badge-lux-danger    { background: #FEECEC; color: #991B1B; border: 1px solid #FECACA; }
+.badge-lux-info      { background: #EAF3FC; color: #1E40AF; border: 1px solid #BFDBFE; }
+.badge-lux-navy      { background: #E9EEF5; color: #0F1C2E; border: 1px solid #CBD5E1; }
+.badge-lux-secondary { background: #F1F3F5; color: #495057; border: 1px solid #DEE2E6; }
+
+/* ---------------- Tables ---------------- */
+
+.lum-table {
+  margin-bottom: 0;
+}
+
+.lum-table thead th {
+  background: var(--lum-cream);
+  color: var(--lum-navy);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 700;
+  border-bottom: 2px solid var(--lum-border);
+  padding: 13px 14px;
+  white-space: nowrap;
+}
+
+.lum-table tbody td {
+  padding: 13px 14px;
+  vertical-align: middle;
+  border-color: rgba(15, 28, 46, 0.06);
+  font-size: 0.9rem;
+}
+
+.lum-table tbody tr:hover {
+  background-color: rgba(250, 248, 244, 0.85);
+}
+
+/* ---------------- Forms & Public Hero ---------------- */
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--lum-gold);
+  box-shadow: 0 0 0 0.2rem rgba(201, 169, 110, 0.22);
+}
+
+.lum-hero {
+  background: linear-gradient(135deg, rgba(15, 28, 46, 0.96) 0%, rgba(22, 42, 69, 0.93) 100%);
+  color: var(--lum-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.lum-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(201, 169, 110, 0.18), transparent 55%);
+  pointer-events: none;
+}
+
+.lum-room-img {
+  width: 100%;
+  height: 215px;
+  object-fit: cover;
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.lum-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--lum-navy), var(--lum-navy-soft));
+  color: var(--lum-gold-light);
+  border: 1.5px solid var(--lum-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+/* ---------------- Responsive Sidebar ---------------- */
+
+.lum-sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 28, 46, 0.55);
+  z-index: 1035;
+}
+
+@media (max-width: 991.98px) {
+  .lum-sidebar {
+    transform: translateX(-100%);
+  }
+  .lum-sidebar.show {
+    transform: translateX(0);
+  }
+  .lum-sidebar-backdrop.show {
+    display: block;
+  }
+  .lum-main {
+    margin-left: 0;
+  }
+  .lum-content {
+    padding: 18px 16px 32px;
+  }
+  .lum-header {
+    padding: 0 16px;
+  }
+}
+
+/* ---------------- Luxury Animations & Micro-Interactions ---------------- */
+
+.lum-card-hover {
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+}
+
+.lum-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--lum-shadow-hover);
+  border-color: rgba(201, 169, 110, 0.55);
+}
+
+.lum-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.lum-room-img,
+.lum-service-img {
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lum-card-hover:hover .lum-room-img,
+.lum-card-hover:hover .lum-service-img {
+  transform: scale(1.06);
+}
+
+.lum-kpi-icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease, color 0.25s ease;
+}
+
+.lum-kpi:hover .lum-kpi-icon {
+  transform: scale(1.1) rotate(-4deg);
+  background: var(--lum-navy);
+  color: var(--lum-gold-light);
+}
+
+.lum-hero::before {
+  animation: heroGlowFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(-24px, 14px, 0) scale(1.08);
+    opacity: 1;
+  }
+}
+
+.lum-table tbody tr {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Scroll Reveal */
+.lum-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.lum-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lum-delay-1 { transition-delay: 0.06s; }
+.lum-delay-2 { transition-delay: 0.12s; }
+.lum-delay-3 { transition-delay: 0.18s; }
+.lum-delay-4 { transition-delay: 0.24s; }
+.lum-delay-5 { transition-delay: 0.30s; }
+
+/* Notification badge gentle pulse */
+@keyframes lumPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(220, 53, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+.lum-header .badge.bg-danger {
+  animation: lumPulse 2.2s infinite;
+}
+
+/* Modal smooth scale-in */
+.modal.fade .modal-dialog {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(12px) scale(0.97);
+}
+.modal.show .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .lum-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------- Print / PDF Styles ---------------- */
+@media print {
+  .lum-sidebar, .lum-header, .no-print, .btn, .lum-sidebar-backdrop {
+    display: none !important;
+  }
+  .lum-main {
+    margin-left: 0 !important;
+  }
+  body {
+    background: #FFFFFF !important;
+  }
+  .lum-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
